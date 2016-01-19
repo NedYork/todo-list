@@ -13,9 +13,15 @@ var TodoDetailView = React.createClass({
 
   render: function () {
     var body,
-        button;
+        button,
+        steps,
+        mapSteps;
 
     if (this.props.visible) {
+      steps = this.props.todo.steps;
+      mapSteps = <ol>{steps.map(function (step, index) {
+        return (<li key={index}>{step.description}</li>);
+      })}</ol>;
       body = this.props.todo.body;
       button = <button onClick={this.handleDestroy}>Delete</button>;
     }
@@ -23,6 +29,7 @@ var TodoDetailView = React.createClass({
     return (
       <div>
         {body}
+        {mapSteps}
         {button}
       </div>
     );
