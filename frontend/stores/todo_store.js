@@ -93,7 +93,7 @@ var TodoStore = {
 
     if (idx !== -1) {
       var todo = _todos[idx];
-      todo.done = true;
+      todo.done = !todo.done;
 
       $.ajax({
         url: "/api/todos/" + id,
