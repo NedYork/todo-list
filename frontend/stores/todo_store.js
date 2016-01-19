@@ -40,10 +40,100 @@ var TodoStore = {
   },
 
   create: function (todo) {
-    
+    $.ajax({
+      url: "/api/todos",
+      type: "POST",
+      dataType: "json",
+      data: { todo: todo },
+      success: function (data) {
+        _todos.push(data);
+        TodoStore.changed();
+      },
+      error: function () {
+        // whatever error
+      }
+    });
+  },
+
+  destroy: function (id) {
+    var idx = -1;
+
+    for (var i = 0; i < _todos.length; i++) {
+      if ( _todos[i].id === id ) {
+        idx = i;
+        break;
+      }
+    }
+
+    if (idx !== -1) {
+      $.ajax({
+        url: "/api/todos/" + id,
+        type: "DELETE",
+        dataType: "json",
+        success: function () {
+          _todos.splice(i, 1);
+          TodoStore.changed();
+        },
+        error: function () {
+          // whatever error
+        }
+      });
+    }
+  },
+
+  toggleDone: function (id) {
+    var idx = -1;
+
+    for (var i = 0; i < _todos.length; i++) {
+      if ( _todos[i].id === id ) {
+        idx = i;
+        break;
+      }
+    }
+
+    if (idx !== -1) {
+      var todo = _todos[idx];
+      todo.done = true;
+
+      $.ajax({
+        url: "/api/todos/" + id,
+        type: "PATCH",
+        dataType: "json",
+        data: { todo: todo },
+        success: function (data) {
+          TodoStore.changed();
+        },
+        error: function () {
+          // whatever error
+        }
+      });
+    }
   }
 
 
 };
 
 module.exports = TodoStore;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
