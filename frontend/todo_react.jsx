@@ -2,6 +2,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var TodoList = require('./components/todo_list.jsx');
+var TodoListItem = require('./components/todo_list_item.jsx');
 
 
 var TodoApp = React.createClass({

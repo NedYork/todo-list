@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var TodoStore = require('./../stores/todo_store.js');
+var TodoListItem = require('./todo_list_item.jsx');
 
 var TodoList = React.createClass({
 
@@ -26,14 +27,12 @@ var TodoList = React.createClass({
     var todos = this.state.todos;
 
     var mapped = todos.map(function (item, index) {
-      return <li key={index} >{item.title}</li>;}
-      );
+      return <TodoListItem todo={item} key={index} />;
+    });
 
     return (
       <div>
-        <ul>
-          {mapped}
-        </ul>
+        {mapped}
       </div>
     );
   }
