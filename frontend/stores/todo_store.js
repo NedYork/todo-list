@@ -20,6 +20,29 @@ var TodoStore = {
     }
   },
 
+  all: function () {
+    return _todos.slice();
+  },
+
+  fetch: function () {
+    $.ajax({
+      url: "/api/todos",
+      type: "GET",
+      dataType: "json",
+      success: function (data) {
+        _todo = data;
+        TodoStore.changed();
+      },
+      error: function () {
+        alert("ERROR");
+      }
+    });
+  },
+
+  create: function (todo) {
+    
+  }
+
 
 };
 
