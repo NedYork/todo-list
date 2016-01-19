@@ -1,7 +1,9 @@
+TodoStore = require('./stores/todo_store.js');
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var MyComponent = React.createClass({
+
+var TodoApp = React.createClass({
   render: function () {
     return(
       <div>Hello World</div>
@@ -10,5 +12,5 @@ var MyComponent = React.createClass({
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  ReactDOM.render(<MyComponent />, document.getElementById('main'));
+  ReactDOM.render(<TodoApp />, document.getElementById('root'));
 });

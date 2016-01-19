@@ -26,33 +26,3 @@ module.exports = {
     extensions: ["", ".js", ".jsx" ]
   }
 };
-
-
-
-
-
-
-// module.exports = {
-//   context: __dirname,
-//   entry: "./frontend/todo_react.jsx",
-//   output: {
-//     path: "./app/assets/javascripts/bundle.js",
-//     filename: "bundle.js"
-//   },
-//   module: {
-//     loaders: [
-//       {
-//         test: /\.jsx?$/,
-//         exclude: /node_modules/,
-//         loader: 'babel',
-//         query: {
-//           presets: ['react']
-//         }
-//       }
-//     ]
-//   },
-//   devtool: 'source-map',
-//   resolve: {
-//     extensions: ["", ".js", '.jsx']
-//   }
-// };

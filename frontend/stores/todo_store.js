@@ -30,7 +30,7 @@ var TodoStore = {
       type: "GET",
       dataType: "json",
       success: function (data) {
-        _todo = data;
+        _todos = data;
         TodoStore.changed();
       },
       error: function () {
@@ -68,13 +68,13 @@ var TodoStore = {
     if (idx !== -1) {
       $.ajax({
         url: "/api/todos/" + id,
-        type: "DELETE",
+        type: "delete",
         dataType: "json",
-        success: function () {
+        success: function (response) {
           _todos.splice(i, 1);
           TodoStore.changed();
         },
-        error: function () {
+        error: function (response) {
           // whatever error
         }
       });
@@ -114,26 +114,3 @@ var TodoStore = {
 };
 
 module.exports = TodoStore;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
