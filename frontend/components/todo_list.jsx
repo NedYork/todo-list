@@ -25,12 +25,14 @@ var TodoList = React.createClass({
   render: function () {
     var todos = this.state.todos;
 
+    var mapped = todos.map(function (item, index) {
+      return <li key={index} >{item.title}</li>;}
+      );
+
     return (
       <div>
         <ul>
-          {todos.map(function (item, index) {
-            return <li key={index} >{item}</li>;}
-            )}
+          {mapped}
         </ul>
       </div>
     );
