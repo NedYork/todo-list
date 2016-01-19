@@ -28,8 +28,25 @@ var TodoForm = React.createClass ({
 
     return (
       <form onSubmit={this.handleSubmit} >
-        <input type="text" onChange={this.updateTitle} name="todo[title]" value={title}></input>
-        <input type="textarea" onChange={this.updateBody} name="todo[body]" value={body}></input>
+        <label>Title</label>
+        <input
+          type="text"
+          onChange={this.updateTitle}
+          name="todo[title]"
+          value={title}
+          placeholder="title">
+        </input>
+        <br></br>
+
+        <label>Body</label>
+        <input
+          type="textarea"
+          onChange={this.updateBody}
+          name="todo[body]"
+          value={body}
+          placeholder="body">
+        </input>
+        <br></br>
         <button >Submit</button>
       </form>
     );
