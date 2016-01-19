@@ -2,6 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var TodoStore = require('./../stores/todo_store.js');
 var TodoListItem = require('./todo_list_item.jsx');
+var TodoForm = require('./todo_form.jsx');
 
 var TodoList = React.createClass({
 
@@ -33,6 +34,7 @@ var TodoList = React.createClass({
     return (
       <div>
         {mapped}
+        <TodoForm />
       </div>
     );
   }
